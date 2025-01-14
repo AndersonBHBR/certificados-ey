@@ -4,6 +4,7 @@ body {
     margin: 0;
     padding: 0;
 }
+
 /* Cabeçalho Fixo */
 header {
     position: fixed;
@@ -26,12 +27,15 @@ header h1 {
     font-size: 24px;
     margin: 0;
 }
+
 /* Ajuste para o conteúdo principal */
 .container {
     max-width: 800px;
     margin: 80px auto 20px; /* Espaço superior para o cabeçalho */
     padding: 0 20px;
 }
+
+/* Certificados */
 .certificate {
     background-color: #fff;
     border: 1px solid #ddd;
@@ -47,6 +51,10 @@ header h1 {
     cursor: pointer;
     background-color: #2e2e38;
     color: #fff;
+    transition: background-color 0.3s ease;
+}
+.certificate-header:hover {
+    background-color: #3c3c4a; /* Efeito hover */
 }
 .certificate-header i {
     margin-right: 10px;
@@ -56,16 +64,24 @@ header h1 {
     font-weight: bold;
     flex-grow: 1;
 }
+
+/* Conteúdo do certificado */
 .certificate-content {
-    padding: 15px;
-    display: none;
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
     background-color: #f9f9f9;
+    transition: max-height 0.5s ease, padding 0.5s ease;
+}
+.certificate-content.open {
+    padding: 15px;
+    max-height: 500px;
 }
 .certificate-content p {
-    margin: 5px 0;
+    margin: 10px 0;
 }
 .file-links {
-    margin-top: 10px;
+    margin-top: 15px;
 }
 .file-links a {
     display: inline-block;
@@ -77,15 +93,7 @@ header h1 {
 .file-links a:hover {
     color: #005bb5;
 }
-.file-links img {
-    max-width: 100px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    transition: transform 0.2s;
-}
-.file-links img:hover {
-    transform: scale(1.05);
-}
+
 /* Responsividade */
 @media (max-width: 600px) {
     header h1 {
@@ -94,10 +102,14 @@ header h1 {
     .certificate-header {
         padding: 10px;
     }
-    .certificate-content {
+    .certificate-content.open {
+        max-height: 300px;
         padding: 10px;
     }
-    .file-links img {
-        max-width: 80px;
+    .certificate-content p {
+        margin: 8px 0;
+    }
+    .file-links {
+        margin-top: 10px;
     }
 }

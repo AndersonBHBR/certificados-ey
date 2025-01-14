@@ -349,10 +349,10 @@
     <script>
         function toggleCertificate(header) {
             const content = header.nextElementSibling;
-            if (content.style.display === 'block') {
-                content.style.display = 'none';
-            } else {
-                content.style.display = 'block';
+            if (content && content.classList.contains('certificate-content')) {
+                const isExpanded = content.classList.contains('open');
+                header.setAttribute('aria-expanded', !isExpanded);
+                content.classList.toggle('open');
             }
         }
     </script>
